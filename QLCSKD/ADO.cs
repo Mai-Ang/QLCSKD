@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Security.Cryptography;
+using System.Collections.ObjectModel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace QLCSKD
 {
@@ -28,10 +30,10 @@ namespace QLCSKD
                 return sb.ToString();
             }
         }
-        public ADO(string connectionString, string databaseName)
+        public ADO(string username, string pass)
         {
-            client = new MongoClient(connectionString);
-            database = client.GetDatabase(databaseName);
+            client = new MongoClient("mongodb+srv://" + username + ":" + pass + "@clusteradmin.xhzdgke.mongodb.net/");
+            database = client.GetDatabase("QTCSDL");
         }
 
         public IMongoCollection<BsonDocument> GetCollection(string collectionName)
@@ -39,11 +41,11 @@ namespace QLCSKD
             return database.GetCollection<BsonDocument>(collectionName);
         }
 
-        public async Task ThemNguoiDung(string collectionname, string username, string password, string email)
+        public async Task ThemNguoiDung(string collectionname, string username, string password, string email, string role)
         {
             var collection = GetCollection(collectionname);
             var hashedpass = HashPassword(password);
-            var document = new BsonDocument { {"username", username}, { "password", hashedpass}, { "email", email} };
+            var document = new BsonDocument { { "username", username }, { "password", hashedpass }, { "email", email }, { "role", role } };
             await collection.InsertOneAsync(document);
         }
         public async Task<bool> KiemTraDangNhap(string collectionname, string username, string password)
@@ -54,5 +56,20 @@ namespace QLCSKD
             var result = await collection.Find(filter).FirstOrDefaultAsync();
             return result != null;
         }
+        
+        //public async Task<bool> KiemTraTaiKhoanTonTai(string check)
+        //{
+        //    var collection = GetCollection(check);
+        //    var filter = Builders<BsonDocument>.Filter.And(Builders<BsonDocument>.Filter.Eq("username", check));
+        //    var result = await collection.Find(check).FirstOrDefaultAsync();
+        //    if(result  != null)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }

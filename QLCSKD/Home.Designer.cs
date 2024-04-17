@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.pn_navi = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pic_logo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_name = new System.Windows.Forms.Label();
             this.btn_logout = new System.Windows.Forms.Button();
@@ -44,10 +43,12 @@
             this.lb_copyright = new System.Windows.Forms.Label();
             this.pn_content = new System.Windows.Forms.Panel();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.pic_logo = new System.Windows.Forms.PictureBox();
+            this.btn_hoadon = new System.Windows.Forms.Button();
             this.pn_navi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             this.panel1.SuspendLayout();
             this.pn_content.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_navi
@@ -61,6 +62,7 @@
             this.pn_navi.Controls.Add(this.btn_dichvu);
             this.pn_navi.Controls.Add(this.btn_khach);
             this.pn_navi.Controls.Add(this.btn_kho);
+            this.pn_navi.Controls.Add(this.btn_hoadon);
             this.pn_navi.Controls.Add(this.btn_phong);
             this.pn_navi.Controls.Add(this.btn_doanhthu);
             this.pn_navi.Location = new System.Drawing.Point(0, 0);
@@ -77,18 +79,6 @@
             this.label1.Size = new System.Drawing.Size(133, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "STAY CONTROL";
-            // 
-            // pic_logo
-            // 
-            this.pic_logo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pic_logo.Image = global::QLCSKD.Properties.Resources.LogoApp;
-            this.pic_logo.Location = new System.Drawing.Point(17, 13);
-            this.pic_logo.Name = "pic_logo";
-            this.pic_logo.Size = new System.Drawing.Size(70, 60);
-            this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_logo.TabIndex = 2;
-            this.pic_logo.TabStop = false;
-            this.pic_logo.Click += new System.EventHandler(this.pic_logo_Click);
             // 
             // panel1
             // 
@@ -114,7 +104,7 @@
             // 
             // btn_logout
             // 
-            this.btn_logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(144)))), ((int)(((byte)(144)))));
+            this.btn_logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_logout.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_logout.ForeColor = System.Drawing.Color.White;
@@ -132,7 +122,7 @@
             this.btn_dichvu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_dichvu.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_dichvu.ForeColor = System.Drawing.Color.White;
-            this.btn_dichvu.Location = new System.Drawing.Point(25, 361);
+            this.btn_dichvu.Location = new System.Drawing.Point(45, 417);
             this.btn_dichvu.Name = "btn_dichvu";
             this.btn_dichvu.Size = new System.Drawing.Size(220, 60);
             this.btn_dichvu.TabIndex = 5;
@@ -145,7 +135,7 @@
             this.btn_khach.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_khach.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_khach.ForeColor = System.Drawing.Color.White;
-            this.btn_khach.Location = new System.Drawing.Point(25, 229);
+            this.btn_khach.Location = new System.Drawing.Point(45, 219);
             this.btn_khach.Name = "btn_khach";
             this.btn_khach.Size = new System.Drawing.Size(220, 60);
             this.btn_khach.TabIndex = 3;
@@ -158,7 +148,7 @@
             this.btn_kho.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_kho.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_kho.ForeColor = System.Drawing.Color.White;
-            this.btn_kho.Location = new System.Drawing.Point(25, 295);
+            this.btn_kho.Location = new System.Drawing.Point(45, 351);
             this.btn_kho.Name = "btn_kho";
             this.btn_kho.Size = new System.Drawing.Size(220, 60);
             this.btn_kho.TabIndex = 4;
@@ -171,12 +161,13 @@
             this.btn_phong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_phong.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_phong.ForeColor = System.Drawing.Color.White;
-            this.btn_phong.Location = new System.Drawing.Point(25, 163);
+            this.btn_phong.Location = new System.Drawing.Point(45, 153);
             this.btn_phong.Name = "btn_phong";
             this.btn_phong.Size = new System.Drawing.Size(220, 60);
             this.btn_phong.TabIndex = 2;
             this.btn_phong.Text = "Phòng";
             this.btn_phong.UseVisualStyleBackColor = false;
+            this.btn_phong.Click += new System.EventHandler(this.btn_phong_Click);
             // 
             // btn_doanhthu
             // 
@@ -184,7 +175,7 @@
             this.btn_doanhthu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_doanhthu.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_doanhthu.ForeColor = System.Drawing.Color.White;
-            this.btn_doanhthu.Location = new System.Drawing.Point(25, 97);
+            this.btn_doanhthu.Location = new System.Drawing.Point(45, 87);
             this.btn_doanhthu.Name = "btn_doanhthu";
             this.btn_doanhthu.Size = new System.Drawing.Size(220, 60);
             this.btn_doanhthu.TabIndex = 1;
@@ -216,6 +207,32 @@
             this.pn_content.Size = new System.Drawing.Size(915, 753);
             this.pn_content.TabIndex = 2;
             // 
+            // pic_logo
+            // 
+            this.pic_logo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pic_logo.Image = global::QLCSKD.Properties.Resources.LogoApp;
+            this.pic_logo.Location = new System.Drawing.Point(17, 13);
+            this.pic_logo.Name = "pic_logo";
+            this.pic_logo.Size = new System.Drawing.Size(70, 60);
+            this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_logo.TabIndex = 2;
+            this.pic_logo.TabStop = false;
+            this.pic_logo.Click += new System.EventHandler(this.pic_logo_Click);
+            // 
+            // btn_hoadon
+            // 
+            this.btn_hoadon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(144)))), ((int)(((byte)(144)))));
+            this.btn_hoadon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_hoadon.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_hoadon.ForeColor = System.Drawing.Color.White;
+            this.btn_hoadon.Location = new System.Drawing.Point(45, 285);
+            this.btn_hoadon.Name = "btn_hoadon";
+            this.btn_hoadon.Size = new System.Drawing.Size(220, 60);
+            this.btn_hoadon.TabIndex = 2;
+            this.btn_hoadon.Text = "Hóa Đơn";
+            this.btn_hoadon.UseVisualStyleBackColor = false;
+            this.btn_hoadon.Click += new System.EventHandler(this.btn_phong_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -229,11 +246,11 @@
             this.Text = "Home";
             this.pn_navi.ResumeLayout(false);
             this.pn_navi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pn_content.ResumeLayout(false);
             this.pn_content.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -254,5 +271,6 @@
         private System.Windows.Forms.Label lb_copyright;
         private System.Windows.Forms.Panel pn_content;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
+        private System.Windows.Forms.Button btn_hoadon;
     }
 }

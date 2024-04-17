@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DangKy));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -45,8 +46,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ep_errorname = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ep_erroremail = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep_errorname)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep_erroremail)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -253,6 +258,14 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
+            // ep_errorname
+            // 
+            this.ep_errorname.ContainerControl = this;
+            // 
+            // ep_erroremail
+            // 
+            this.ep_erroremail.ContainerControl = this;
+            // 
             // DangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -271,6 +284,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep_errorname)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep_erroremail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +308,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ErrorProvider ep_errorname;
+        private System.Windows.Forms.ErrorProvider ep_erroremail;
     }
 }

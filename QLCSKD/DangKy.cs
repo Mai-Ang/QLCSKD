@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -18,7 +19,7 @@ namespace QLCSKD
         {
             InitializeComponent();
             this.dangnhap = dangnhap;
-            this.dbConnection = new ADO("mongodb://localhost:27017/?readPreference=primary&appname=MongoDI", "QLCSKD");
+            this.dbConnection = new ADO("Admin", "9YtggVE1pjSZspeq");
         }
 
         private void cb_hienmatkhau_CheckedChanged(object sender, EventArgs e)
@@ -57,16 +58,27 @@ namespace QLCSKD
             else
             {
                 string username = txt_tentaikhoan.Text;
-                string password = txt_matkhau.Text;
                 string email = txt_email.Text;
-                await dbConnection.ThemNguoiDung("Accounts", username, password, email);
-                MessageBox.Show("Ban Da Dang Ky Thanh Cong");
-                txt_tentaikhoan.Clear();
-                txt_matkhau.Clear();
-                txt_email.Clear();
-                txt_xacnhanmatkhau.Clear();
-                dangnhap.Show();
-                this.Close();
+                //if (await dbConnection.KiemTraTaiKhoanTonTai(username) == true)
+                //{
+                //    ep_errorname.SetError(txt_tentaikhoan, "Tai Khoan Da Ton Tai");
+                //}
+                //else if (await dbConnection.KiemTraTaiKhoanTonTai(email) == true)
+                //{
+                //    ep_errorname.SetError(txt_email, "Mat Khau Da Duoc Su Dung");
+                //}
+                //else
+                {
+                    string password = txt_matkhau.Text;
+                    await dbConnection.ThemNguoiDung("Accounts", username, password, email, "User");
+                    MessageBox.Show("Ban Da Dang Ky Thanh Cong");
+                    txt_tentaikhoan.Clear();
+                    txt_matkhau.Clear();
+                    txt_email.Clear();
+                    txt_xacnhanmatkhau.Clear();
+                    dangnhap.Show();
+                    this.Close();
+                }
             }
         }
     }

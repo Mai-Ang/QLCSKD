@@ -63,6 +63,16 @@ namespace QLCSKD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap circle_exclamation_solid {
+            get {
+                object obj = ResourceManager.GetObject("circle-exclamation-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap circle_minus_solid {
             get {
                 object obj = ResourceManager.GetObject("circle-minus-solid", resourceCulture);

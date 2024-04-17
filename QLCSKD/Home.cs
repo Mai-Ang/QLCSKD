@@ -28,21 +28,28 @@ namespace QLCSKD
             this.pn_content.Controls.Add(f);
             f.Show();
         }
+        public void DisplayUsername(string u_name)
+        {
+            lb_name.Text = u_name;
+        }
         private void btn_logout_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Bạn Đã Thoát Chương Trình", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             Application.Exit();
         }
-
+        private void pic_logo_Click(object sender, EventArgs e)
+        {
+            this.pn_content.Controls.Clear();
+        }
         private void btn_doanhthu_Click(object sender, EventArgs e)
         {
             var f = new DoanhThu();
             Addform(f);
         }
-
-        private void pic_logo_Click(object sender, EventArgs e)
+        private void btn_phong_Click(object sender, EventArgs e)
         {
-            this.pn_content.Controls.Clear();
+            var f = new Phong();
+            Addform(f);
         }
     }
 }
