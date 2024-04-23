@@ -51,5 +51,11 @@ namespace QLCSKD
             var f = new Phong();
             Addform(f);
         }
+
+        private void btn_hoadon_Click(object sender, EventArgs e)
+        {
+            var f = new HoaDon();
+            Addform(f);
+        }
     }
 }

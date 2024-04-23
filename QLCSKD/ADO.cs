@@ -8,6 +8,8 @@ using MongoDB.Driver;
 using System.Security.Cryptography;
 using System.Collections.ObjectModel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Windows.Forms;
+using static QLCSKD.ADO;
 
 namespace QLCSKD
 {
@@ -15,6 +17,7 @@ namespace QLCSKD
     {
         private MongoClient client;
         private IMongoDatabase database;
+        // Hash Pass
         public string HashPassword(string password)
         {
             using (SHA1Managed sha1 = new SHA1Managed())
@@ -30,17 +33,25 @@ namespace QLCSKD
                 return sb.ToString();
             }
         }
+        // Connect TO Mongo
         public ADO(string username, string pass)
         {
-            client = new MongoClient("mongodb+srv://" + username + ":" + pass + "@clusteradmin.xhzdgke.mongodb.net/");
-            database = client.GetDatabase("QTCSDL");
+            try
+            {
+                client = new MongoClient("mongodb+srv://" + username + ":" + pass + "@clusteradmin.xhzdgke.mongodb.net/");
+                database = client.GetDatabase("QTCSDL");
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Loi Ket Noi");
+            }
         }
-
+        // Return Collection
         public IMongoCollection<BsonDocument> GetCollection(string collectionName)
         {
             return database.GetCollection<BsonDocument>(collectionName);
         }
-
+        // Task For Login/Register/ForgotPass
         public async Task ThemNguoiDung(string collectionname, string username, string password, string email, string role)
         {
             var collection = GetCollection(collectionname);
@@ -56,7 +67,6 @@ namespace QLCSKD
             var result = await collection.Find(filter).FirstOrDefaultAsync();
             return result != null;
         }
-        
         //public async Task<bool> KiemTraTaiKhoanTonTai(string check)
         //{
         //    var collection = GetCollection(check);
@@ -71,5 +81,32 @@ namespace QLCSKD
         //        return false;
         //    }
         //}
+        // Task For DoanhThu Page
+        public class Transaction
+        {
+            public ObjectId Id { get; set; } 
+            public DateTime Ngay { get; set; }
+            public string Ten { get; set; }
+            public string STK { get; set; }
+            public double SoTien { get; set; }
+            public string NoiDung {  get; set; }
+        }
+        // Return TDOCUMENT
+        public IMongoCollection<Transaction> GetTCollection(string collectionName)
+        {
+            return database.GetCollection<Transaction>(collectionName);
+        }
+        public async Task<List<Transaction>> Trans_His(string collectionname)
+        {
+            var collection = GetTCollection(collectionname);
+            List<Transaction> list = await collection.Find(Builders<Transaction>.Filter.Empty).ToListAsync();
+            return list;
+        }
+        // Insert Trans
+        public async Task ThemGiaoDich(string collectionName, Transaction transaction)
+        {
+            var collection = database.GetCollection<Transaction>(collectionName);
+            await collection.InsertOneAsync(transaction);
+        }
     }
 }

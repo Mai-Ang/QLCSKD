@@ -46,8 +46,8 @@ namespace QLCSKD
 
         private void llbquenmatkhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            QuenMatKhau quenMatKhau = new QuenMatKhau();
-            quenMatKhau.Show();
+            //QuenMatKhau quenMatKhau = new QuenMatKhau();
+            //quenMatKhau.Show();
             this.Hide();
         }
 

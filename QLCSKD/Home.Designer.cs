@@ -28,27 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.pn_navi = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pic_logo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_name = new System.Windows.Forms.Label();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_dichvu = new System.Windows.Forms.Button();
             this.btn_khach = new System.Windows.Forms.Button();
             this.btn_kho = new System.Windows.Forms.Button();
+            this.btn_hoadon = new System.Windows.Forms.Button();
             this.btn_phong = new System.Windows.Forms.Button();
             this.btn_doanhthu = new System.Windows.Forms.Button();
             this.lb_copyright = new System.Windows.Forms.Label();
             this.pn_content = new System.Windows.Forms.Panel();
-            this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.pic_logo = new System.Windows.Forms.PictureBox();
-            this.btn_hoadon = new System.Windows.Forms.Button();
             this.pn_navi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             this.panel1.SuspendLayout();
             this.pn_content.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_navi
@@ -79,6 +77,18 @@
             this.label1.Size = new System.Drawing.Size(133, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "STAY CONTROL";
+            // 
+            // pic_logo
+            // 
+            this.pic_logo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pic_logo.Image = global::QLCSKD.Properties.Resources.LogoApp;
+            this.pic_logo.Location = new System.Drawing.Point(17, 13);
+            this.pic_logo.Name = "pic_logo";
+            this.pic_logo.Size = new System.Drawing.Size(70, 60);
+            this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_logo.TabIndex = 2;
+            this.pic_logo.TabStop = false;
+            this.pic_logo.Click += new System.EventHandler(this.pic_logo_Click);
             // 
             // panel1
             // 
@@ -155,6 +165,20 @@
             this.btn_kho.Text = "Kho";
             this.btn_kho.UseVisualStyleBackColor = false;
             // 
+            // btn_hoadon
+            // 
+            this.btn_hoadon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(144)))), ((int)(((byte)(144)))));
+            this.btn_hoadon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_hoadon.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_hoadon.ForeColor = System.Drawing.Color.White;
+            this.btn_hoadon.Location = new System.Drawing.Point(45, 285);
+            this.btn_hoadon.Name = "btn_hoadon";
+            this.btn_hoadon.Size = new System.Drawing.Size(220, 60);
+            this.btn_hoadon.TabIndex = 2;
+            this.btn_hoadon.Text = "Hóa Đơn";
+            this.btn_hoadon.UseVisualStyleBackColor = false;
+            this.btn_hoadon.Click += new System.EventHandler(this.btn_hoadon_Click);
+            // 
             // btn_phong
             // 
             this.btn_phong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(144)))), ((int)(((byte)(144)))));
@@ -207,50 +231,27 @@
             this.pn_content.Size = new System.Drawing.Size(915, 753);
             this.pn_content.TabIndex = 2;
             // 
-            // pic_logo
-            // 
-            this.pic_logo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pic_logo.Image = global::QLCSKD.Properties.Resources.LogoApp;
-            this.pic_logo.Location = new System.Drawing.Point(17, 13);
-            this.pic_logo.Name = "pic_logo";
-            this.pic_logo.Size = new System.Drawing.Size(70, 60);
-            this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_logo.TabIndex = 2;
-            this.pic_logo.TabStop = false;
-            this.pic_logo.Click += new System.EventHandler(this.pic_logo_Click);
-            // 
-            // btn_hoadon
-            // 
-            this.btn_hoadon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(144)))), ((int)(((byte)(144)))));
-            this.btn_hoadon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_hoadon.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_hoadon.ForeColor = System.Drawing.Color.White;
-            this.btn_hoadon.Location = new System.Drawing.Point(45, 285);
-            this.btn_hoadon.Name = "btn_hoadon";
-            this.btn_hoadon.Size = new System.Drawing.Size(220, 60);
-            this.btn_hoadon.TabIndex = 2;
-            this.btn_hoadon.Text = "Hóa Đơn";
-            this.btn_hoadon.UseVisualStyleBackColor = false;
-            this.btn_hoadon.Click += new System.EventHandler(this.btn_phong_Click);
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1232, 753);
             this.Controls.Add(this.pn_content);
             this.Controls.Add(this.pn_navi);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Home";
             this.Text = "Home";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pn_navi.ResumeLayout(false);
             this.pn_navi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pn_content.ResumeLayout(false);
             this.pn_content.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -270,7 +271,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lb_copyright;
         private System.Windows.Forms.Panel pn_content;
-        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private System.Windows.Forms.Button btn_hoadon;
     }
 }

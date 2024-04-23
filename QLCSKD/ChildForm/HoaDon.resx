@@ -117,4 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_search.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEUAAAApCAYAAABju+QIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGVSURBVGhD7drPKwRhHMfxJ3bb+WGmbQ/OjsrFQfwBlHJw
+        cFI4OKi9cOTAgXJRpJxcnLi4OHE1Y2blJkqUQtT6taRVKHsY851doT7+gX0+T732Ms8ennfTM5ev+rM8
+        NWiF7m4mMEvKV1G9k3PaBfcgPne+VuDX8lRWHrYddpVHL2ei6du1aOlpu+7JOceu5qLO4543K3DO4g4t
+        tSJKSZDhi0n4R11M3CxGcYfrOIyhUp453nHU/Yo26qb3ZOjDCp2V5C2RVwht0s1UcTUyAruoUn76ff5h
+        E27SUXIJyw96qCtGARgFYBSAUQBGARgFYBSAUQBGARgFYBSAUQBGARgFYBSAUQBGARgFYBSAUQBGARgF
+        YBSAUQBGARgFYBSAUYAkSoPfWFkobcENOkqiyFiTTPGgDbqZvV+P0nuZssoExnLf6UgFbdKNjLjZobsj
+        Q4CGGTbd6TL89x+5QpxC7uVnGNBT7VboPg6c5z91m2qSGDIRmttvfjZ9p78a5Ht5KmuFzoaMeyWXjSbk
+        QyOzw/H5W6shlPoC7fCa/jXwk3AAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="txtb_search.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAARQAAAApCAYAAAD049a+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAG0SURBVHhe7di/itRQFMDhlFvuI2xp6ZNY+wg2PovgM/gK
+        tpvJPzJJBlJubSGCIrKCK7hFvHc3oqPZdYVj9x34GMLcO+WPMymMMea/zTiOT5PzaZo+HA6HBeBXuQ1J
+        nzxbs/HnzPN8mg8Nw3DZtu1S1/Wy2+0AjuQ2NE2z9H3/JS0fF6kdZ2tGfk6OSQ7J1g8AbMlhSe14U5bl
+        yZqSm5g83+/3n7cuANyn67qvaVN5uebkdjvJpdk6DHCf/BcoBeXtmpOboFxVVbV5GOBv8svaNSdFkR+2
+        DgE8hKAAYQQFCCMoQBhBAcIIChBGUIAwggKEERQgjKAAYQQFCCMoQBhBAcIIChBGUIAwggKEERQgjKAA
+        YQQFCCMoQBhBAcIIChBGUIAwggKEERQgjKAAYQQFCPN7UK63DgE8xFFQxnG8aJpm8yDAfaqqWqZpulxz
+        UhTp4UXXdbYU4J+1bbukpeT1mpOiKMvyJEXlXV3XmxcA7pJi8mme57M1J7czDMPj9MX7VJtveYXZugjw
+        Q95M0iLyse/7J2tGjidV5jQdeJVc5ZcsAHe4TgvIefp8tObDGGMipyi+A2x0oE6GyW3bAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
 </root>
