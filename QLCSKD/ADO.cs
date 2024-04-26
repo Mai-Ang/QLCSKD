@@ -10,6 +10,8 @@ using System.Collections.ObjectModel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Windows.Forms;
 using static QLCSKD.ADO;
+using System.Collections;
+using QLCSKD.ChildForm;
 
 namespace QLCSKD
 {
@@ -46,12 +48,12 @@ namespace QLCSKD
                 MessageBox.Show("Loi Ket Noi");
             }
         }
-        // Return Collection
+// Return Collection
         public IMongoCollection<BsonDocument> GetCollection(string collectionName)
         {
             return database.GetCollection<BsonDocument>(collectionName);
         }
-        // Task For Login/Register/ForgotPass
+// Task For Login/Register/ForgotPass
         public async Task ThemNguoiDung(string collectionname, string username, string password, string email, string role)
         {
             var collection = GetCollection(collectionname);
@@ -81,7 +83,7 @@ namespace QLCSKD
         //        return false;
         //    }
         //}
-        // Task For DoanhThu Page
+// Task For DoanhThu Page
         public class Transaction
         {
             public ObjectId Id { get; set; } 
@@ -92,13 +94,13 @@ namespace QLCSKD
             public string NoiDung {  get; set; }
         }
         // Return TDOCUMENT
-        public IMongoCollection<Transaction> GetTCollection(string collectionName)
+        public IMongoCollection<Transaction> GetCollect_Trans(string collectionName)
         {
             return database.GetCollection<Transaction>(collectionName);
         }
         public async Task<List<Transaction>> Trans_His(string collectionname)
         {
-            var collection = GetTCollection(collectionname);
+            var collection = GetCollect_Trans(collectionname);
             List<Transaction> list = await collection.Find(Builders<Transaction>.Filter.Empty).ToListAsync();
             return list;
         }
@@ -108,5 +110,53 @@ namespace QLCSKD
             var collection = database.GetCollection<Transaction>(collectionName);
             await collection.InsertOneAsync(transaction);
         }
+// Task For HoaDon Page
+        public class Invoices
+        {
+            public ObjectId Id { get; set; }
+            public string Phong { get; set; }
+            public double CSD { get; set; }
+            public double CSDMoi { get; set; }
+            public double TienDien { get; set; }
+            public double CSN { get; set; }
+            public double CSNMoi { get; set; }
+            public double TienNuoc { get; set; }
+            public double TongTien { get; set; }
+            public double PhuThu { get; set; }
+            public double Khac { get; set; }
+            public string NoiDung { get; set; }
+            public DateTime Ngay { get; set; }
+        }
+        public IMongoCollection<Invoices> GetCollect_Invoices(string collectionName)
+        {
+            return database.GetCollection<Invoices>(collectionName);
+        }
+        public async Task<List<Invoices>> Invoice_His(string collectionname)
+        {
+            var collection = GetCollect_Invoices(collectionname);
+            List<Invoices> list = await collection.Find(Builders<Invoices>.Filter.Empty).ToListAsync();
+            return list;
+        }
+        // Insert Invoices
+        public async Task Insert_Invoices(string collectionName, Invoices invoi)
+        {
+            var collection = database.GetCollection<Invoices>(collectionName);
+            await collection.InsertOneAsync(invoi);
+        }
+        // Return Phong
+        public List<String> Get_List_Phong()
+        {
+            var collection = GetCollection("Rooms");
+            var filter = Builders<BsonDocument>.Filter.And(Builders<BsonDocument>.Filter.Eq("Status_Invoices","unpaid"));
+            var rooms = collection.Find(filter).ToList();
+            List<string> listroom = new List<string>();
+            foreach (var room in rooms) 
+            {
+               listroom.Add(room["Name"].ToString());
+            }
+            return listroom;
+        }
+        // Task For Phong Page
+
     }
 }

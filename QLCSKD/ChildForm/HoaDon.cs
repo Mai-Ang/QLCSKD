@@ -12,14 +12,17 @@ namespace QLCSKD.ChildForm
 {
     public partial class HoaDon : Form
     {
+        private ADO dbConnection;
         public HoaDon()
         {
             InitializeComponent();
+            dbConnection = new ADO("Admin", "9YtggVE1pjSZspeq");
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void HoaDon_Load(object sender, EventArgs e)
         {
-
+            cb_numberphong.DataSource = dbConnection.Get_List_Phong();
+            cb_numberphong.DisplayMember = "Name";
         }
     }
 }
