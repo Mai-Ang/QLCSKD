@@ -170,12 +170,12 @@ namespace QLCSKD
         public List<String> Get_List_Phong()
         {
             var collection = GetCollection("Rooms");
-            var filter = Builders<BsonDocument>.Filter.And(Builders<BsonDocument>.Filter.Eq("Status_Invoices","unpaid"));
-            var rooms = collection.Find(filter).ToList();
-            List<string> listroom = new List<string>();
+            ////var filter = Builders<BsonDocument>.Filter.And(Builders<BsonDocument>.Filter.Eq("Status_Invoices","unpaid"));
+            var rooms = collection.Find(new BsonDocument()).ToList();
+            List<string> listrooms = new List<string>();
             foreach (var room in rooms) 
             {
-               listroom.Add(room["Name"].ToString());
+               listrooms.Add(room["Name"].ToString());
             }
             return listrooms;
         }
