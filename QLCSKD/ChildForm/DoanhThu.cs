@@ -43,9 +43,10 @@ namespace QLCSKD.ChildForm
         // Test Insert
         private async void Insert(object sender, EventArgs e)
         {
+            DateTime datetime = ADO.GetTimeVN();
             var Trans = new Transaction
             {
-                Ngay = DateTime.Now,
+                Ngay = datetime,
                 Ten = "John Doe",
                 STK = "1234567890",
                 SoTien = 1000.0,
@@ -84,7 +85,7 @@ namespace QLCSKD.ChildForm
         }
         private async void CapNhatDataGrid(object sender, EventArgs e)
         {
-            var transactions = await dbConnection.Trans_His("Transaction");
+            var transactions = await dbConnection.LsGiaoDich("Transaction");
             transactions = transactions.OrderByDescending(t => t.Ngay).ToList();
             dtgrid_trans.DataSource = transactions;
         }

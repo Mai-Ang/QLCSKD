@@ -29,15 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HoaDon));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pn_crinvoices = new System.Windows.Forms.Panel();
+            this.txt_gianuoc = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_giadien = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txt_noidung = new System.Windows.Forms.TextBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.txt_phong = new System.Windows.Forms.TextBox();
             this.txt_phuthu = new System.Windows.Forms.TextBox();
@@ -66,12 +70,12 @@
             this.btn_search = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.txtb_search = new Bunifu.UI.WinForms.BunifuTextBox();
             this.cb_ctt = new System.Windows.Forms.CheckBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgrid_invoices = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.bunifuGroupBox1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pn_crinvoices.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrid_invoices)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -92,7 +96,7 @@
             this.bunifuGroupBox1.BorderColor = System.Drawing.Color.Gray;
             this.bunifuGroupBox1.BorderRadius = 20;
             this.bunifuGroupBox1.BorderThickness = 1;
-            this.bunifuGroupBox1.Controls.Add(this.panel3);
+            this.bunifuGroupBox1.Controls.Add(this.pn_crinvoices);
             this.bunifuGroupBox1.Controls.Add(this.label1);
             this.bunifuGroupBox1.Controls.Add(this.cb_numberphong);
             this.bunifuGroupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,46 +110,83 @@
             this.bunifuGroupBox1.TabStop = false;
             this.bunifuGroupBox1.Text = "Tạo Mới Hóa Đơn";
             // 
-            // panel3
+            // pn_crinvoices
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.pn_crinvoices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.btn_save);
-            this.panel3.Controls.Add(this.txt_phong);
-            this.panel3.Controls.Add(this.txt_phuthu);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.txt_khac);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.txt_nuocmoi);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.txt_tongtien);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.txt_tiennuoc);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.txt_tiendien);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.txt_dienmoi);
-            this.panel3.Controls.Add(this.txt_dien);
-            this.panel3.Controls.Add(this.txt_nuoc);
-            this.panel3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(56, 83);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1131, 208);
-            this.panel3.TabIndex = 8;
-            this.panel3.Visible = false;
+            this.pn_crinvoices.AutoSize = true;
+            this.pn_crinvoices.Controls.Add(this.txt_gianuoc);
+            this.pn_crinvoices.Controls.Add(this.label14);
+            this.pn_crinvoices.Controls.Add(this.txt_giadien);
+            this.pn_crinvoices.Controls.Add(this.label13);
+            this.pn_crinvoices.Controls.Add(this.txt_noidung);
+            this.pn_crinvoices.Controls.Add(this.btn_save);
+            this.pn_crinvoices.Controls.Add(this.txt_phong);
+            this.pn_crinvoices.Controls.Add(this.txt_phuthu);
+            this.pn_crinvoices.Controls.Add(this.label2);
+            this.pn_crinvoices.Controls.Add(this.label12);
+            this.pn_crinvoices.Controls.Add(this.label11);
+            this.pn_crinvoices.Controls.Add(this.label3);
+            this.pn_crinvoices.Controls.Add(this.txt_khac);
+            this.pn_crinvoices.Controls.Add(this.label5);
+            this.pn_crinvoices.Controls.Add(this.label10);
+            this.pn_crinvoices.Controls.Add(this.label4);
+            this.pn_crinvoices.Controls.Add(this.txt_nuocmoi);
+            this.pn_crinvoices.Controls.Add(this.label7);
+            this.pn_crinvoices.Controls.Add(this.txt_tongtien);
+            this.pn_crinvoices.Controls.Add(this.label6);
+            this.pn_crinvoices.Controls.Add(this.txt_tiennuoc);
+            this.pn_crinvoices.Controls.Add(this.label8);
+            this.pn_crinvoices.Controls.Add(this.txt_tiendien);
+            this.pn_crinvoices.Controls.Add(this.label9);
+            this.pn_crinvoices.Controls.Add(this.txt_dienmoi);
+            this.pn_crinvoices.Controls.Add(this.txt_dien);
+            this.pn_crinvoices.Controls.Add(this.txt_nuoc);
+            this.pn_crinvoices.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pn_crinvoices.Location = new System.Drawing.Point(56, 83);
+            this.pn_crinvoices.Name = "pn_crinvoices";
+            this.pn_crinvoices.Size = new System.Drawing.Size(1131, 208);
+            this.pn_crinvoices.TabIndex = 8;
+            this.pn_crinvoices.Visible = false;
             // 
-            // textBox1
+            // txt_gianuoc
             // 
-            this.textBox1.Location = new System.Drawing.Point(894, 86);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 30);
-            this.textBox1.TabIndex = 8;
+            this.txt_gianuoc.Location = new System.Drawing.Point(738, 3);
+            this.txt_gianuoc.Name = "txt_gianuoc";
+            this.txt_gianuoc.Size = new System.Drawing.Size(121, 30);
+            this.txt_gianuoc.TabIndex = 12;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(631, 11);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(89, 22);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Giá Nước";
+            // 
+            // txt_giadien
+            // 
+            this.txt_giadien.Location = new System.Drawing.Point(474, 3);
+            this.txt_giadien.Name = "txt_giadien";
+            this.txt_giadien.Size = new System.Drawing.Size(121, 30);
+            this.txt_giadien.TabIndex = 10;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(307, 11);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(82, 22);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "Giá Điện";
+            // 
+            // txt_noidung
+            // 
+            this.txt_noidung.Location = new System.Drawing.Point(894, 58);
+            this.txt_noidung.Name = "txt_noidung";
+            this.txt_noidung.Size = new System.Drawing.Size(234, 30);
+            this.txt_noidung.TabIndex = 8;
             // 
             // btn_save
             // 
@@ -156,6 +197,7 @@
             this.btn_save.TabIndex = 7;
             this.btn_save.Text = "Tạo Mới\r\n";
             this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // txt_phong
             // 
@@ -166,10 +208,12 @@
             // 
             // txt_phuthu
             // 
-            this.txt_phuthu.Location = new System.Drawing.Point(727, 58);
+            this.txt_phuthu.Location = new System.Drawing.Point(738, 63);
             this.txt_phuthu.Name = "txt_phuthu";
             this.txt_phuthu.Size = new System.Drawing.Size(121, 30);
             this.txt_phuthu.TabIndex = 6;
+            this.txt_phuthu.TextChanged += new System.EventHandler(this.TotalBill_TextChange);
+            this.txt_phuthu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInput);
             // 
             // label2
             // 
@@ -183,7 +227,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(890, 61);
+            this.label12.Location = new System.Drawing.Point(890, 11);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(86, 22);
             this.label12.TabIndex = 5;
@@ -209,10 +253,12 @@
             // 
             // txt_khac
             // 
-            this.txt_khac.Location = new System.Drawing.Point(727, 107);
+            this.txt_khac.Location = new System.Drawing.Point(738, 112);
             this.txt_khac.Name = "txt_khac";
             this.txt_khac.Size = new System.Drawing.Size(121, 30);
             this.txt_khac.TabIndex = 4;
+            this.txt_khac.TextChanged += new System.EventHandler(this.TotalBill_TextChange);
+            this.txt_khac.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInput);
             // 
             // label5
             // 
@@ -247,6 +293,8 @@
             this.txt_nuocmoi.Name = "txt_nuocmoi";
             this.txt_nuocmoi.Size = new System.Drawing.Size(121, 30);
             this.txt_nuocmoi.TabIndex = 2;
+            this.txt_nuocmoi.TextChanged += new System.EventHandler(this.txt_nuocmoi_TextChanged);
+            this.txt_nuocmoi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInput);
             // 
             // label7
             // 
@@ -259,8 +307,10 @@
             // 
             // txt_tongtien
             // 
-            this.txt_tongtien.Location = new System.Drawing.Point(727, 160);
+            this.txt_tongtien.BackColor = System.Drawing.Color.White;
+            this.txt_tongtien.Location = new System.Drawing.Point(738, 165);
             this.txt_tongtien.Name = "txt_tongtien";
+            this.txt_tongtien.ReadOnly = true;
             this.txt_tongtien.Size = new System.Drawing.Size(121, 30);
             this.txt_tongtien.TabIndex = 2;
             // 
@@ -275,10 +325,13 @@
             // 
             // txt_tiennuoc
             // 
+            this.txt_tiennuoc.BackColor = System.Drawing.Color.White;
             this.txt_tiennuoc.Location = new System.Drawing.Point(474, 160);
             this.txt_tiennuoc.Name = "txt_tiennuoc";
+            this.txt_tiennuoc.ReadOnly = true;
             this.txt_tiennuoc.Size = new System.Drawing.Size(121, 30);
             this.txt_tiennuoc.TabIndex = 2;
+            this.txt_tiennuoc.TextChanged += new System.EventHandler(this.TotalBill_TextChange);
             // 
             // label8
             // 
@@ -291,10 +344,13 @@
             // 
             // txt_tiendien
             // 
+            this.txt_tiendien.BackColor = System.Drawing.Color.White;
             this.txt_tiendien.Location = new System.Drawing.Point(158, 160);
             this.txt_tiendien.Name = "txt_tiendien";
+            this.txt_tiendien.ReadOnly = true;
             this.txt_tiendien.Size = new System.Drawing.Size(121, 30);
             this.txt_tiendien.TabIndex = 2;
+            this.txt_tiendien.TextChanged += new System.EventHandler(this.TotalBill_TextChange);
             // 
             // label9
             // 
@@ -311,6 +367,8 @@
             this.txt_dienmoi.Name = "txt_dienmoi";
             this.txt_dienmoi.Size = new System.Drawing.Size(121, 30);
             this.txt_dienmoi.TabIndex = 2;
+            this.txt_dienmoi.TextChanged += new System.EventHandler(this.txt_dienmoi_TextChanged);
+            this.txt_dienmoi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInput);
             // 
             // txt_dien
             // 
@@ -318,6 +376,8 @@
             this.txt_dien.Name = "txt_dien";
             this.txt_dien.Size = new System.Drawing.Size(121, 30);
             this.txt_dien.TabIndex = 2;
+            this.txt_dien.TextChanged += new System.EventHandler(this.txt_dien_TextChanged);
+            this.txt_dien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInput);
             // 
             // txt_nuoc
             // 
@@ -325,6 +385,8 @@
             this.txt_nuoc.Name = "txt_nuoc";
             this.txt_nuoc.Size = new System.Drawing.Size(121, 30);
             this.txt_nuoc.TabIndex = 2;
+            this.txt_nuoc.TextChanged += new System.EventHandler(this.txt_nuoc_TextChanged);
+            this.txt_nuoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInput);
             // 
             // label1
             // 
@@ -342,6 +404,7 @@
             this.cb_numberphong.Name = "cb_numberphong";
             this.cb_numberphong.Size = new System.Drawing.Size(214, 30);
             this.cb_numberphong.TabIndex = 0;
+            this.cb_numberphong.SelectedIndexChanged += new System.EventHandler(this.cb_numberphong_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -349,7 +412,7 @@
             this.panel2.Controls.Add(this.btn_search);
             this.panel2.Controls.Add(this.txtb_search);
             this.panel2.Controls.Add(this.cb_ctt);
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.dtgrid_invoices);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 351);
             this.panel2.Name = "panel2";
@@ -375,11 +438,11 @@
             this.btn_search.ColorContrastOnClick = 45;
             this.btn_search.ColorContrastOnHover = 45;
             this.btn_search.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.btn_search.CustomizableEdges = borderEdges1;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.btn_search.CustomizableEdges = borderEdges2;
             this.btn_search.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_search.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(236)))), ((int)(((byte)(180)))));
             this.btn_search.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(236)))), ((int)(((byte)(180)))));
@@ -478,26 +541,26 @@
             this.txtb_search.Modified = false;
             this.txtb_search.Multiline = false;
             this.txtb_search.Name = "txtb_search";
-            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties1.ForeColor = System.Drawing.Color.Empty;
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtb_search.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.txtb_search.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties3.ForeColor = System.Drawing.Color.Empty;
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtb_search.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties4.FillColor = System.Drawing.Color.Silver;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtb_search.OnIdleState = stateProperties4;
+            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties5.ForeColor = System.Drawing.Color.Empty;
+            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtb_search.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties6.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.txtb_search.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties7.ForeColor = System.Drawing.Color.Empty;
+            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtb_search.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties8.FillColor = System.Drawing.Color.Silver;
+            stateProperties8.ForeColor = System.Drawing.Color.Empty;
+            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtb_search.OnIdleState = stateProperties8;
             this.txtb_search.Padding = new System.Windows.Forms.Padding(3);
             this.txtb_search.PasswordChar = '\0';
             this.txtb_search.PlaceholderForeColor = System.Drawing.Color.Black;
@@ -531,18 +594,20 @@
             this.cb_ctt.Text = "Chưa Thanh Toán";
             this.cb_ctt.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dtgrid_invoices
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtgrid_invoices.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 55);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1187, 309);
-            this.dataGridView1.TabIndex = 0;
+            this.dtgrid_invoices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgrid_invoices.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtgrid_invoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrid_invoices.Location = new System.Drawing.Point(12, 55);
+            this.dtgrid_invoices.Name = "dtgrid_invoices";
+            this.dtgrid_invoices.RowHeadersWidth = 51;
+            this.dtgrid_invoices.RowTemplate.Height = 24;
+            this.dtgrid_invoices.Size = new System.Drawing.Size(1187, 309);
+            this.dtgrid_invoices.TabIndex = 0;
             // 
             // HoaDon
             // 
@@ -558,11 +623,11 @@
             this.panel1.ResumeLayout(false);
             this.bunifuGroupBox1.ResumeLayout(false);
             this.bunifuGroupBox1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pn_crinvoices.ResumeLayout(false);
+            this.pn_crinvoices.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrid_invoices)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -595,12 +660,16 @@
         private System.Windows.Forms.TextBox txt_tongtien;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel pn_crinvoices;
+        private System.Windows.Forms.DataGridView dtgrid_invoices;
         private System.Windows.Forms.CheckBox cb_ctt;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_search;
         private Bunifu.UI.WinForms.BunifuTextBox txtb_search;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_noidung;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txt_gianuoc;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txt_giadien;
+        private System.Windows.Forms.Label label13;
     }
 }
