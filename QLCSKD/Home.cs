@@ -57,5 +57,23 @@ namespace QLCSKD
             var f = new HoaDon();
             Addform(f);
         }
+
+        private void btn_khach_Click(object sender, EventArgs e)
+        {
+            var f = new Khach();
+            Addform(f);
+        }
+
+        private void btn_kho_Click(object sender, EventArgs e)
+        {
+            var f = new Kho();
+            Addform(f);
+        }
+
+        private void btn_dichvu_Click(object sender, EventArgs e)
+        {
+            var f = new DichVu();
+            Addform(f);
+        }
     }
 }
