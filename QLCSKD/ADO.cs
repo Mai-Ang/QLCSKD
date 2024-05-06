@@ -172,12 +172,12 @@ namespace QLCSKD
             var collection = GetCollection("Rooms");
             ////var filter = Builders<BsonDocument>.Filter.And(Builders<BsonDocument>.Filter.Eq("Status_Invoices","unpaid"));
             var rooms = collection.Find(new BsonDocument()).ToList();
-            List<string> listrooms = new List<string>();
+            List<string> listroom = new List<string>();
             foreach (var room in rooms) 
             {
-               listrooms.Add(room["Name"].ToString());
+               listroom.Add(room["Name"].ToString());
             }
-            return listrooms;
+            return listroom;
         }
         // Task For Phong Page
 
