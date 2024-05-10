@@ -171,8 +171,9 @@ namespace QLCSKD
         public List<String> Get_List_Phong()
         {
             var collection = GetCollection("Rooms");
-            
-            var rooms = collection.Find(new BsonDocument()).ToList();
+<<<<<<<<< Temporary merge branch 1
+            var filter = Builders<BsonDocument>.Filter.And(Builders<BsonDocument>.Filter.Eq("Status_Invoices", "unpaid"));
+            var rooms = collection.Find(filter).ToList();
             List<string> listroom = new List<string>();
             foreach (var room in rooms) 
             {
