@@ -13,6 +13,7 @@ using static QLCSKD.ADO;
 using System.Collections;
 using QLCSKD.ChildForm;
 
+
 namespace QLCSKD
 {
     public class ADO
@@ -170,8 +171,8 @@ namespace QLCSKD
         public List<String> Get_List_Phong()
         {
             var collection = GetCollection("Rooms");
-            var filter = Builders<BsonDocument>.Filter.And(Builders<BsonDocument>.Filter.Eq("Status_Invoices","unpaid"));
-            var rooms = collection.Find(filter).ToList();
+            
+            var rooms = collection.Find(new BsonDocument()).ToList();
             List<string> listroom = new List<string>();
             foreach (var room in rooms) 
             {
@@ -181,6 +182,18 @@ namespace QLCSKD
         }
         // Task For Phong Page
 
+
+        public class Contract
+        {
+            public ObjectId Id { get; set; }
+            public string TenKhach { get; set; }
+            public string ThongTinLienHe { get; set; }
+            public string SoPhong { get; set; }
+            public string SOCCCD { get; set; }
+            public string LoaiPhong { get; set; }
+            public string Gia { get; set; }
+            public string NgayBatDau { get; set; }
+        }
         public IMongoCollection<Contract> GetTColl(string collectionName)
         {
             return database.GetCollection<Contract>(collectionName);
@@ -219,16 +232,27 @@ namespace QLCSKD
             await collection.UpdateOneAsync(filter, update);
         }
         // Task For Quan ly hop dong Page
-        public IMongoCollection<Supplies> GetTl(string collectionName)
+        public class Supplies
+        {
+            public ObjectId Id { get; set; }
+
+            public string Tenthietbi { get; set; }
+            public string PS { get; set; }
+            public string ViTri { get; set; }
+            public string TrangThai { get; set; }
+        }
+
+        public IMongoCollection<Supplies> GetCollect_Supplies(string collectionName)
         {
             return database.GetCollection<Supplies>(collectionName);
         }
-        public async Task<List<Supplies>> Trans_Hisas(string collectionname)
+        public async Task<List<Supplies>> LsKho(string collectionname)
         {
-            var collection = GetTl(collectionname);
+            var collection = GetCollect_Supplies(collectionname);
             List<Supplies> list = await collection.Find(Builders<Supplies>.Filter.Empty).ToListAsync();
             return list;
         }
+        
         public async Task ThemThietBi(string collectionName, Supplies supplies)
         {
             var collection = database.GetCollection<Supplies>(collectionName);
@@ -239,40 +263,65 @@ namespace QLCSKD
             var collection = database.GetCollection<Supplies>(collectionName);
             await collection.DeleteOneAsync(c => c.Id == supplies.Id);
         }
+
         public async Task SuaThietBi(string collectionName, Supplies supplies)
         {
-            var collection = database.GetCollection<BsonDocument>(collectionName);
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", supplies.Id);
-            var update = Builders<BsonDocument>.Update
+            var collection = database.GetCollection<Supplies>(collectionName);
+            var filter = Builders<Supplies>.Filter.Eq("_id", supplies.Id);
+            var update = Builders<Supplies>.Update
                 .Set("Tenthietbi", supplies.Tenthietbi)
-                .Set("SL", supplies.SL)
+                .Set("PS", supplies.PS)
                 .Set("ViTri", supplies.ViTri)
                 .Set("TrangThai", supplies.TrangThai);
 
             await collection.UpdateOneAsync(filter, update);
         }
-    }
-    public class Contract
+
+        // Task For Kho Page
+
+        public class Services
         {
             public ObjectId Id { get; set; }
 
-            public string TenKhach { get; set; }
-            public string ThongTinLienHe { get; set; }
-            public string SoPhong { get; set; }
-            public string SOCCCD { get; set; }
-            public string LoaiPhong { get; set; }
-            public string Gia { get; set; }
-            public string NgayBatDau { get; set; }
-    }
-    // Task For Quan ly hop dong Page
-    public class Supplies
-    {
-        public ObjectId Id { get; set; }
+            public string Name { get; set; }
+            public int Price { get; set; }
 
-        public string Tenthietbi { get; set; }
-        public string SL { get; set; }
-        public string ViTri { get; set; }
-        public string TrangThai { get; set; }
+        }
 
+        public IMongoCollection<Services> GetCollect_Services(string collectionName)
+        {
+            return database.GetCollection<Services>(collectionName);
+        }
+        public async Task<List<Services>> LsDichVu(string collectionname)
+        {
+            var collection = GetCollect_Services(collectionname);
+            List<Services> list = await collection.Find(Builders<Services>.Filter.Empty).ToListAsync();
+            return list;
+        }
+
+        public async Task ThemDichVu(string collectionName, Services services)
+        {
+            var collection = database.GetCollection<Services>(collectionName);
+            await collection.InsertOneAsync(services);
+        }
+        public async Task XoaDichVu(string collectionName, Services services)
+        {
+            var collection = database.GetCollection<Services>(collectionName);
+            await collection.DeleteOneAsync(c => c.Id == services.Id);
+        }
+
+        public async Task SuaDichVu(string collectionName, Services services)
+        {
+            var collection = database.GetCollection<Services>(collectionName);
+            var filter = Builders<Services>.Filter.Eq("_id", services.Id);
+            var update = Builders<Services>.Update
+                .Set("Name", services.Name)
+                .Set("Price", services.Price);
+
+
+            await collection.UpdateOneAsync(filter, update);
+        }
+
+        // Task For Dich Vu Page
     }
 }

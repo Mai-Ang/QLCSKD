@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics.Contracts;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,153 +22,161 @@ namespace QLCSKD.ChildForm
             InitializeComponent();
             this.Load += Kho_Load;
             dbConnection = new ADO("Admin", "9YtggVE1pjSZspeq");
+        
+
         }
 
-        private async void btnThem_Click(object sender, EventArgs e)
+
+
+        private async void Kho_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtTenthietbi.Text) ||
-                string.IsNullOrWhiteSpace(txtSL.Text) ||
-                string.IsNullOrWhiteSpace(txtViTri.Text) ||
-                cmbTrangThai.SelectedItem == null)
+            await LoadDataToDataGridView("Supplies");
+        }
+
+        private async Task LoadDataToDataGridView(string collectionName)
+        {
+            var supplies = await dbConnection.LsKho(collectionName);
+
+            dtg_content.DataSource = supplies;
+
+            dtg_content.Columns["Tenthietbi"].HeaderText = "Tên thiết bị";
+            dtg_content.Columns["PS"].HeaderText = "Phòng Số";
+            dtg_content.Columns["ViTri"].HeaderText = "Vị trí";
+            dtg_content.Columns["TrangThai"].HeaderText = "Trạng thái";
+
+        }
+
+
+
+
+
+        private void dtg_content_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dtg_content.SelectedRows.Count > 0)
+            {
+                btnsua.Enabled = true;
+                btnxoa.Enabled = true;
+            }
+            else
+            {
+                btnsua.Enabled = false;
+                btnxoa.Enabled = false;
+            }
+        }
+
+        private async void btnthem_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_ttb.Text) ||
+                cb_ps.SelectedItem == null ||
+                cb_vt.SelectedItem == null ||
+                cb_tt.SelectedItem == null)
             {
                 MessageBox.Show("Vui lòng nhập đủ thông tin trước khi lưu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string tenthietbi = txtTenthietbi.Text;
-            string sL = txtSL.Text;
-            string viTri = txtViTri.Text;
-            string trangThai = cmbTrangThai.SelectedItem?.ToString();
-
-            if (!int.TryParse(sL, out _))
+            var newSupplies = new Supplies
             {
-                MessageBox.Show("Số lượng phải là một số nguyên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (!int.TryParse(viTri, out _))
-            {
-                MessageBox.Show("Vị trí phải là một số nguyên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-
-            var sup = new Supplies
-            {
-                Tenthietbi = tenthietbi,
-                SL = sL,
-                ViTri = viTri,
-                TrangThai = trangThai,
+                Tenthietbi = txt_ttb.Text,
+                PS = cb_ps.SelectedItem.ToString(),
+                ViTri = cb_vt.SelectedItem.ToString(),
+                TrangThai = cb_tt.SelectedItem.ToString()
             };
 
-            await dbConnection.ThemThietBi("Supplies", sup);
-            await LoadDataToDataGridView();
+            await dbConnection.ThemThietBi("Supplies", newSupplies);
+            await LoadDataToDataGridView("Supplies");
 
-            cmbTrangThai.SelectedItem = 0;
-            txtTenthietbi.Clear();
-            txtSL.Clear();
-            txtViTri.Clear();
+            cb_tt.SelectedItem = null;
+            txt_ttb.Clear();
         }
 
-        private async void Kho_Load(object sender, EventArgs e)
+        private async void btnxoa_Click_1(object sender, EventArgs e)
         {
-            await LoadDataToDataGridView();
-        }
-
-        private async Task LoadDataToDataGridView()
-        {
-            var contract = await dbConnection.Trans_Hisas("Supplies");
-            contract = contract.OrderByDescending(t => t.SL).ToList();
-            dtgvThietbi.DataSource = contract;
-        }
-
-        private async void btnXoa_Click(object sender, EventArgs e)
-        {
-            if (dtgvThietbi.SelectedRows.Count == 0)
+            if (dtg_content.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn ít nhất một dòng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            foreach (DataGridViewRow row in dtgvThietbi.SelectedRows)
+            foreach (DataGridViewRow row in dtg_content.SelectedRows)
             {
-                // Lấy đối tượng Contract từ dòng được chọn
+                // Lấy đối tượng Supplies từ dòng được chọn
                 var supplies = row.DataBoundItem as Supplies;
                 if (supplies != null && supplies.Id != null)
                 {
-                    // Gọi phương thức xóa hợp đồng từ cơ sở dữ liệu MongoDB
-                    await dbConnection.XoaThietBi("Supplies", supplies);
+                    await dbConnection.XoaThietBi("Supplies", supplies); // Thay đổi tham số thứ hai thành Id của đối tượng Supplies
                 }
             }
 
             // Tải lại dữ liệu lên DataGridView sau khi xóa
-            await LoadDataToDataGridView();
+            await LoadDataToDataGridView("Supplies");
 
             MessageBox.Show("Đã xóa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private async void btnSua_Click(object sender, EventArgs e)
+        private async void btnsua_Click_1(object sender, EventArgs e)
         {
-            // Kiểm tra xem có dòng nào được chọn trong DataGridView không
-            if (dtgvThietbi.SelectedRows.Count == 0)
+            if (dtg_content.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn một dòng để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            DataGridViewRow selectedRow = dtgvThietbi.SelectedRows[0];
+            DataGridViewRow selectedRow = dtg_content.SelectedRows[0];
+            var id = selectedRow.Cells["Id"].Value.ToString(); // Lấy ID của hàng được chọn
 
-            var supplies = selectedRow.DataBoundItem as Supplies;
-            if (supplies == null)
+            if (!ObjectId.TryParse(id, out ObjectId objectId))
             {
-                MessageBox.Show("Không thể tìm thấy hợp đồng để sửa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không thể tìm thấy dữ liệu để sửa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!string.IsNullOrWhiteSpace(txtTenthietbi.Text))
-                supplies.Tenthietbi = txtTenthietbi.Text;
+            var supplies = new Supplies
+            {
+                Id = objectId,
+                Tenthietbi = txt_ttb.Text,
+                PS = cb_ps.SelectedItem?.ToString(),
+                ViTri = cb_vt.SelectedItem?.ToString(),
+                TrangThai = cb_tt.SelectedItem?.ToString()
+            };
 
-            if (!string.IsNullOrWhiteSpace(txtSL.Text))
-                supplies.SL = txtSL.Text;
-
-            if (!string.IsNullOrWhiteSpace(txtViTri.Text))
-                supplies.ViTri = txtViTri.Text;
-
-            if (cmbTrangThai.SelectedItem != null)
-                supplies.TrangThai = cmbTrangThai.SelectedItem.ToString();
-
-
-
-            //supplies.NgayBatDau = dtpkBegin.Value.ToString("yyyy-MM-dd");
-
-            // Call the method to update the contract in the database
             await dbConnection.SuaThietBi("Supplies", supplies);
+            await LoadDataToDataGridView("Supplies");
 
-            // Reload data to DataGridView after editing
-            await LoadDataToDataGridView();
+            txt_ttb.Clear();
+            cb_ps.SelectedIndex = -1;
+            cb_vt.SelectedIndex = -1;
+            cb_tt.SelectedIndex = -1;
 
-            // Clear input controls
-            txtTenthietbi.Clear();
-            txtSL.Clear();
-            txtViTri.Clear();
-            cmbTrangThai.SelectedIndex = -1;
+            btnsua.Enabled = true;
 
-            btnSua.Enabled = true;
-
-            MessageBox.Show("Đã cập nhật hợp đồng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Đã cập nhật dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void dtgvThietbi_SelectionChanged(object sender, EventArgs e)
+
+
+        private void dtg_content_SelectionChanged_1(object sender, EventArgs e)
         {
-            if (dtgvThietbi.SelectedRows.Count > 0)
+            if (dtg_content.SelectedRows.Count > 0)
             {
-                btnSua.Enabled = true;
-                btnXoa.Enabled = true;
+                DataGridViewRow selectedRow = dtg_content.SelectedRows[0];
+                // Lấy các giá trị từ hàng được chọn
+                string tenthietbi = selectedRow.Cells["Tenthietbi"].Value.ToString();
+                string ps = selectedRow.Cells["PS"].Value.ToString();
+                string vitri = selectedRow.Cells["ViTri"].Value.ToString();
+                string trangThai = selectedRow.Cells["TrangThai"].Value.ToString();
+
+                txt_ttb.Text = tenthietbi;
+                cb_ps.SelectedItem = ps;
+                cb_vt.SelectedItem = vitri;
+                cb_tt.SelectedItem = trangThai;
             }
             else
             {
-                btnSua.Enabled = false;
-                btnXoa.Enabled = false;
+                txt_ttb.Clear();
+                cb_ps.SelectedIndex = -1;
+                cb_vt.SelectedIndex = -1;
+                cb_tt.SelectedIndex = -1;
             }
         }
     }

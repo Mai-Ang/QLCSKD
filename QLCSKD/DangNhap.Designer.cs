@@ -42,7 +42,6 @@
             this.lbl_forgotpass = new System.Windows.Forms.LinkLabel();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btn_dangky = new System.Windows.Forms.Button();
             this.btn_dangnhap = new System.Windows.Forms.Button();
             this.cb_hienmatkhau = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -74,7 +73,6 @@
             this.panel1.Controls.Add(this.txt_username);
             this.panel1.Controls.Add(this.pn_success);
             this.panel1.Controls.Add(this.pn_failed);
-            this.panel1.Controls.Add(this.btn_dangky);
             this.panel1.Controls.Add(this.btn_dangnhap);
             this.panel1.Controls.Add(this.cb_hienmatkhau);
             this.panel1.Location = new System.Drawing.Point(140, 140);
@@ -226,28 +224,14 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Dang Nhap Khong Thanh Cong";
             // 
-            // btn_dangky
-            // 
-            this.btn_dangky.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(198)))), ((int)(((byte)(227)))));
-            this.btn_dangky.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_dangky.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_dangky.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_dangky.Location = new System.Drawing.Point(19, 300);
-            this.btn_dangky.Name = "btn_dangky";
-            this.btn_dangky.Size = new System.Drawing.Size(150, 35);
-            this.btn_dangky.TabIndex = 10;
-            this.btn_dangky.Text = "Dang Ky";
-            this.btn_dangky.UseVisualStyleBackColor = false;
-            this.btn_dangky.Click += new System.EventHandler(this.btn_dangky_Click);
-            // 
             // btn_dangnhap
             // 
             this.btn_dangnhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(198)))), ((int)(((byte)(227)))));
             this.btn_dangnhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_dangnhap.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_dangnhap.Location = new System.Drawing.Point(174, 300);
+            this.btn_dangnhap.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_dangnhap.Location = new System.Drawing.Point(20, 300);
             this.btn_dangnhap.Name = "btn_dangnhap";
-            this.btn_dangnhap.Size = new System.Drawing.Size(150, 35);
+            this.btn_dangnhap.Size = new System.Drawing.Size(305, 35);
             this.btn_dangnhap.TabIndex = 9;
             this.btn_dangnhap.Text = "Dang Nhap";
             this.btn_dangnhap.UseVisualStyleBackColor = false;
@@ -329,7 +313,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox cb_hienmatkhau;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btn_dangky;
         private System.Windows.Forms.Button btn_dangnhap;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;

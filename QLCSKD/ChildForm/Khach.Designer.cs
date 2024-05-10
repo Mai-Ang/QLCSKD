@@ -51,7 +51,7 @@
             this.bunifuPanel1.Location = new System.Drawing.Point(12, 12);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(646, 57);
+            this.bunifuPanel1.Size = new System.Drawing.Size(900, 57);
             this.bunifuPanel1.TabIndex = 1;
             // 
             // btnDanhSach
@@ -67,7 +67,7 @@
             // btnHopDong
             // 
             this.btnHopDong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHopDong.Location = new System.Drawing.Point(494, 12);
+            this.btnHopDong.Location = new System.Drawing.Point(748, 12);
             this.btnHopDong.Name = "btnHopDong";
             this.btnHopDong.Size = new System.Drawing.Size(140, 32);
             this.btnHopDong.TabIndex = 2;
@@ -83,7 +83,7 @@
             this.pnlKhachChild.BackColor = System.Drawing.Color.White;
             this.pnlKhachChild.Location = new System.Drawing.Point(12, 89);
             this.pnlKhachChild.Name = "pnlKhachChild";
-            this.pnlKhachChild.Size = new System.Drawing.Size(646, 472);
+            this.pnlKhachChild.Size = new System.Drawing.Size(900, 508);
             this.pnlKhachChild.TabIndex = 2;
             // 
             // Khach
@@ -91,7 +91,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(670, 573);
+            this.ClientSize = new System.Drawing.Size(924, 609);
             this.Controls.Add(this.pnlKhachChild);
             this.Controls.Add(this.bunifuPanel1);
             this.Name = "Khach";
